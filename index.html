@@ -1,0 +1,377 @@
+<!Doctype html>
+<html lang="en">
+    <head>
+        <title>USPEECH: Ultrasound-Enhanced Speech with Minimal Human Effort via Cross-modal Synthesis</title>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="author" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" type="text/css" href="style_project_page.css?cache=7754391418498779889">
+        <link href="https://fonts.googleapis.com/css?family=Arvo|Roboto&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/@glidejs/glide/dist/css/glide.core.min.css">
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="https://unpkg.com/@glidejs/glide"></script>
+        <style type="text/css">
+            body{
+              min-width:600px;
+              max-width:100%;
+            }
+            .side-text {
+                width:60%;
+                display:inline-block;
+                vertical-align:top;
+            }
+            .side-image {
+                width: 38%;
+                display: inline-block;
+                vertical-align: top;
+            }
+            .controls {
+                margin-bottom: 10px;
+            }
+            .left-controls {
+                display: inline-block;
+                vertical-align: top;
+                width: 80%;
+            }
+            .right-controls {
+                display: inline-block;
+                vertical-align: top;
+                width: 19%;
+                text-align: right;
+            }
+            .render_window {
+                display: inline-block;
+                vertical-align: middle;
+                box-shadow: 1px 0px 5px black;
+                margin-right: 10px;
+                margin-bottom: 10px;
+                width: calc(33% - 10px);
+            }
+            .progress {
+                background: #666;
+                position: relative;
+                height: 5px;
+                margin-bottom: -5px;
+                display: none;
+            }
+            .glide__slide:hover {cursor: grab;}
+            .glide__slide:active {cursor: grabbing;}
+            .glide__slide img {width: 90%;}
+            .glide__bullets {
+                text-align: center;
+            }
+            .glide__bullet--active {
+                color: #aaa; 
+            }
+
+            @media (max-width: 400px) {
+                .render_window {
+                    display: block;
+                    width: 90%;
+                    margin: 10px auto;
+                }
+            }
+            @media (max-width: 700px) {
+                .side-image {
+                    display: block;
+                    width: 80%;
+                    margin: 10px auto;
+                }
+                .side-text {
+                    display: block;
+                    width: 100%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="topnav" id="homepage">
+            <div>
+                <a href="#homepage" ><strong>USPEECH</strong></a>
+                <a href="#introduction" >Introduction</a>
+                <a href="#video" >Video</a>
+                <a href="#results" >Result</a>
+            </div>
+        </div>
+        <div class="section">
+            <h1 class="project-title">
+                USPEECH: Ultrasound-Enhanced Speech with Minimal Human Effort via Cross-modal Synthesis
+            </h1>
+            <div class="authors">
+                Anonymous Author(s)
+            </div>
+
+            <div class="project-conference">
+                UIST 2024
+            </div>
+
+            <div id="introduction" class="teaser-image">
+                <p class="caption">
+                    Speech enhancement is pivotal in human-computer interaction (HCI), especially in ubiquitous devices. 
+                    Ultrasound-based speech enhancement has emerged as an attractive choice without the need for extra hardware. 
+                    Existing solutions, however, rely on labor-intensive and time-consuming data collection under various settings, 
+                    limiting the full potential of ultrasound-based speech enhancement. To address the challenge, we propose USPEECH, 
+                    a cross-modal ultrasound synthesis system for speech enhancement with minimal human effort. 
+                    USPEECH is a two-stage ultrasound synthesis framework to establish a correspondence between visual and ultrasonic modalities by leveraging audio as the bridge, 
+                    overcoming challenges caused by the lack of paired video-ultrasound datasets and the inherent heterogeneity between sound and light. 
+                    Our framework incorporates contrastive audio-video pre-training to project multiple modalities into a shared semantic space and employs an 
+                    audio-ultrasound encoder-decoder for ultrasound synthesis. Based on this, we present a speech enhancement network to enhance the speech in 
+                    Time-Frequency domain and further recover the clean speech waveform via the neural vocoder. Comprehensive experiments show that USPEECH demonstrates 
+                    remarkable performance using synthetic ultrasound data, comparable to that using physical data, while significantly outperforming state-of-the-art baselines.
+                </p>
+                <img src="figures/overall.png" style="width:60%;">
+            </div>
+
+            <div id="video" class="section-title">Video</div>
+            <div class="video">
+                <video width="80%" controls>
+                    <source src="videos/video.mp4" type="video/mp4">
+                </video>
+            </div>
+
+
+            <div id="results" class="section-title">Result</div>
+            <p class="caption">
+                In this section, we demonstrates the recovery results of USPEECH and other baselines (7 volunteers).
+            </p>
+            <div class="content">
+                <div class="row" >
+                    <div class="column"><p>Clean speech</p></div>
+                    <div class="column"><p>Noisy speech</p></div>
+                    <div class="column"><p>UltraSE</p></div>
+                    <div class="column"><p>Ultraspeech</p></div>
+                    <div class="column"><p>PHASEN</p></div>
+                    <div class="column"><p>USPEECH w/ syn. (ours)</p></div>
+                    <div class="column"><p>USPEECH w/ phy. (ours)</p></div>
+                </div>
+                <div class="row" >
+                    <div class="column">
+                        <audio controls class="audio-player" preload="metadata" style="width: 80%;">
+                        <source src="samples/clean speech/a.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="column">
+                        <audio controls class="audio-player" preload="metadata" style="width: 80%;">
+                        <source src="samples/noisy speech/a.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="column">
+                        <audio controls class="audio-player" preload="metadata" style="width: 80%;">
+                        <source src="samples/ultrase/a.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="column">
+                        <audio controls class="audio-player" preload="metadata" style="width: 80%;">
+                        <source src="samples/ultraspeech/a.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="column">
+                        <audio controls class="audio-player" preload="metadata" style="width: 80%;">
+                        <source src="samples/phasen/a.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="column">
+                        <audio controls class="audio-player" preload="metadata" style="width: 80%;">
+                        <source src="samples/ours-syn/a.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="column">
+                        <audio controls class="audio-player" preload="metadata" style="width: 80%;">
+                        <source src="samples/ours-phy/a.wav" type="audio/wav"></audio>
+                    </div>
+                </div>
+
+                <div class="row" >
+                    <div class="column">
+                        <audio controls class="audio-player" preload="metadata" style="width: 80%;">
+                        <source src="samples/clean speech/b.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="column">
+                        <audio controls class="audio-player" preload="metadata" style="width: 80%;">
+                        <source src="samples/noisy speech/b.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="column">
+                        <audio controls class="audio-player" preload="metadata" style="width: 80%;">
+                        <source src="samples/ultrase/b.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="column">
+                        <audio controls class="audio-player" preload="metadata" style="width: 80%;">
+                        <source src="samples/ultraspeech/b.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="column">
+                        <audio controls class="audio-player" preload="metadata" style="width: 80%;">
+                        <source src="samples/phasen/b.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="column">
+                        <audio controls class="audio-player" preload="metadata" style="width: 80%;">
+                        <source src="samples/ours-syn/b.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="column">
+                        <audio controls class="audio-player" preload="metadata" style="width: 80%;">
+                        <source src="samples/ours-phy/b.wav" type="audio/wav"></audio>
+                    </div>
+                </div>
+
+                <div class="row" >
+                    <div class="column">
+                        <audio controls class="audio-player" preload="metadata" style="width: 80%;">
+                        <source src="samples/clean speech/c.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="column">
+                        <audio controls class="audio-player" preload="metadata" style="width: 80%;">
+                        <source src="samples/noisy speech/c.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="column">
+                        <audio controls class="audio-player" preload="metadata" style="width: 80%;">
+                        <source src="samples/ultrase/c.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="column">
+                        <audio controls class="audio-player" preload="metadata" style="width: 80%;">
+                        <source src="samples/ultraspeech/c.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="column">
+                        <audio controls class="audio-player" preload="metadata" style="width: 80%;">
+                        <source src="samples/phasen/c.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="column">
+                        <audio controls class="audio-player" preload="metadata" style="width: 80%;">
+                        <source src="samples/ours-syn/c.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="column">
+                        <audio controls class="audio-player" preload="metadata" style="width: 80%;">
+                        <source src="samples/ours-phy/c.wav" type="audio/wav"></audio>
+                    </div>
+                </div>
+
+                <div class="row" >
+                    <div class="column">
+                        <audio controls class="audio-player" preload="metadata" style="width: 80%;">
+                        <source src="samples/clean speech/d.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="column">
+                        <audio controls class="audio-player" preload="metadata" style="width: 80%;">
+                        <source src="samples/noisy speech/d.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="column">
+                        <audio controls class="audio-player" preload="metadata" style="width: 80%;">
+                        <source src="samples/ultrase/d.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="column">
+                        <audio controls class="audio-player" preload="metadata" style="width: 80%;">
+                        <source src="samples/ultraspeech/d.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="column">
+                        <audio controls class="audio-player" preload="metadata" style="width: 80%;">
+                        <source src="samples/phasen/d.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="column">
+                        <audio controls class="audio-player" preload="metadata" style="width: 80%;">
+                        <source src="samples/ours-syn/d.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="column">
+                        <audio controls class="audio-player" preload="metadata" style="width: 80%;">
+                        <source src="samples/ours-phy/d.wav" type="audio/wav"></audio>
+                    </div>
+                </div>
+
+                <div class="row" >
+                    <div class="column">
+                        <audio controls class="audio-player" preload="metadata" style="width: 80%;">
+                        <source src="samples/clean speech/e.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="column">
+                        <audio controls class="audio-player" preload="metadata" style="width: 80%;">
+                        <source src="samples/noisy speech/e.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="column">
+                        <audio controls class="audio-player" preload="metadata" style="width: 80%;">
+                        <source src="samples/ultrase/e.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="column">
+                        <audio controls class="audio-player" preload="metadata" style="width: 80%;">
+                        <source src="samples/ultraspeech/e.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="column">
+                        <audio controls class="audio-player" preload="metadata" style="width: 80%;">
+                        <source src="samples/phasen/e.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="column">
+                        <audio controls class="audio-player" preload="metadata" style="width: 80%;">
+                        <source src="samples/ours-syn/e.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="column">
+                        <audio controls class="audio-player" preload="metadata" style="width: 80%;">
+                        <source src="samples/ours-phy/e.wav" type="audio/wav"></audio>
+                    </div>
+                </div>
+
+                <div class="row" >
+                    <div class="column">
+                        <audio controls class="audio-player" preload="metadata" style="width: 80%;">
+                        <source src="samples/clean speech/f.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="column">
+                        <audio controls class="audio-player" preload="metadata" style="width: 80%;">
+                        <source src="samples/noisy speech/f.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="column">
+                        <audio controls class="audio-player" preload="metadata" style="width: 80%;">
+                        <source src="samples/ultrase/f.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="column">
+                        <audio controls class="audio-player" preload="metadata" style="width: 80%;">
+                        <source src="samples/ultraspeech/f.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="column">
+                        <audio controls class="audio-player" preload="metadata" style="width: 80%;">
+                        <source src="samples/phasen/f.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="column">
+                        <audio controls class="audio-player" preload="metadata" style="width: 80%;">
+                        <source src="samples/ours-syn/f.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="column">
+                        <audio controls class="audio-player" preload="metadata" style="width: 80%;">
+                        <source src="samples/ours-phy/f.wav" type="audio/wav"></audio>
+                    </div>
+                </div>
+
+                <div class="row" >
+                    <div class="column">
+                        <audio controls class="audio-player" preload="metadata" style="width: 80%;">
+                        <source src="samples/clean speech/g.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="column">
+                        <audio controls class="audio-player" preload="metadata" style="width: 80%;">
+                        <source src="samples/noisy speech/g.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="column">
+                        <audio controls class="audio-player" preload="metadata" style="width: 80%;">
+                        <source src="samples/ultrase/g.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="column">
+                        <audio controls class="audio-player" preload="metadata" style="width: 80%;">
+                        <source src="samples/ultraspeech/g.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="column">
+                        <audio controls class="audio-player" preload="metadata" style="width: 80%;">
+                        <source src="samples/phasen/g.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="column">
+                        <audio controls class="audio-player" preload="metadata" style="width: 80%;">
+                        <source src="samples/ours-syn/g.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="column">
+                        <audio controls class="audio-player" preload="metadata" style="width: 80%;">
+                        <source src="samples/ours-phy/g.wav" type="audio/wav"></audio>
+                    </div>
+                </div>
+
+
+                
+            </div>
+
+
+        <div class="section-title"> </div>
+            <p align="center">Thanks to <a href="https://paschalidoud.github.io/">Despoina Paschalidou </a>for the website template.</p>
+    </body>
+</html>
